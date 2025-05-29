@@ -1,0 +1,21 @@
+[Unit]
+Description=PS1 Extension Interface
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/ps1_extension_RPI/firmware/python
+ExecStart=/usr/bin/python3 ps1_extension.py --service
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+# Permissions pour GPIO et SPI
+SupplementaryGroups=gpio spi
+
+[Install]
+WantedBy=multi-user.target

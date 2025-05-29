@@ -1,0 +1,18 @@
+# Configuration pour Extension PS1
+# Ajouter ces lignes à /boot/config.txt
+
+# Activer SPI
+dtparam=spi=on
+dtparam=spi0_speed=1000000
+
+# Configuration GPIO
+dtoverlay=gpio-poweroff,gpiopin=22
+dtoverlay=gpio-led,gpio=18,label=status,trigger=default-on
+
+# Optimisations performance
+gpu_mem=16
+disable_camera_led=1
+dtparam=audio=off
+
+# Configuration série (optionnel pour debug)
+enable_uart=1
